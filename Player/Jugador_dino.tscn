@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://ecjwm04krxhq"]
+
+[ext_resource type="Texture2D" uid="uid://dj36iuav1orkr" path="res://Sprite-dino/Gdino espalda camina_20240706011836.png" id="1_5jltx"]
+[ext_resource type="Script" path="res://Player/animacion2D.gd" id="1_yrigp"]
+[ext_resource type="Texture2D" uid="uid://bqrgpr8uf4a2r" path="res://Sprite-dino/Gdino espalda camina_20240706011901.png" id="2_fjqsq"]
+[ext_resource type="Texture2D" uid="uid://bj1rky03i6v1y" path="res://Sprite-dino/Gdino espalda camina_20240706011928.png" id="3_25qh3"]
+[ext_resource type="Texture2D" uid="uid://be3fw4b3oawi0" path="res://Sprite-dino/G dino caminando de frente_20240705214612.png" id="4_pcc3o"]
+[ext_resource type="Texture2D" uid="uid://8l8cso46c087" path="res://Sprite-dino/G dino caminando de frente_20240705214631.png" id="5_wxdt0"]
+[ext_resource type="Texture2D" uid="uid://dqax82vjsw0p5" path="res://Sprite-dino/Gdino camina derecha2_20240709212048.png" id="6_40ilc"]
+[ext_resource type="Texture2D" uid="uid://cd8afqhnmdvo8" path="res://Sprite-dino/Gdino camina derecha2_20240709212113.png" id="7_2xyxp"]
+[ext_resource type="Texture2D" uid="uid://c8wouseeb2f4l" path="res://Sprite-dino/Gdino camina derecha2_20240709212138.png" id="8_p6eiw"]
+[ext_resource type="Texture2D" uid="uid://d25eyqbkvbdd4" path="res://Sprite-dino/Gdino camina derecha2_20240709212201.png" id="9_olomr"]
+[ext_resource type="Texture2D" uid="uid://c7g1o1rb78vw4" path="res://Sprite-dino/Gdino camina derecha2_20240709212223.png" id="10_t4nji"]
+[ext_resource type="Texture2D" uid="uid://c80keyp5ep2ad" path="res://Sprite-dino/Gdino camina derecha2_20240709212244.png" id="11_qe3ig"]
+[ext_resource type="Texture2D" uid="uid://dvggm174u70oq" path="res://Sprite-dino/G dino caminando de frente_20240705214549.png" id="12_t87l4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvuo2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5jltx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fjqsq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_25qh3")
+}],
+"loop": true,
+"name": &"arriba",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pcc3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wxdt0")
+}],
+"loop": true,
+"name": &"defrente",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_40ilc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2xyxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p6eiw")
+}],
+"loop": true,
+"name": &"derecha",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_olomr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_t4nji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qe3ig")
+}],
+"loop": true,
+"name": &"izquierda",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_t87l4")
+}],
+"loop": true,
+"name": &"sin hacer nada",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_us55h"]
+radius = 60.0
+height = 230.0
+
+[node name="JugadorDino" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_yrigp")
+
+[node name="animationSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_uvuo2")
+animation = &"izquierda"
+autoplay = "sin hacer nada"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_us55h")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+enabled = false
