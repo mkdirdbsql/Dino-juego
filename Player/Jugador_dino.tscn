@@ -26,20 +26,23 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_25qh3")
 }],
-"loop": true,
+"loop": false,
 "name": &"arriba",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_t87l4")
+}, {
 "duration": 1.0,
 "texture": ExtResource("4_pcc3o")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_wxdt0")
 }],
-"loop": true,
+"loop": false,
 "name": &"defrente",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -51,9 +54,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_p6eiw")
 }],
-"loop": true,
+"loop": false,
 "name": &"derecha",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -65,22 +68,21 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_qe3ig")
 }],
-"loop": true,
+"loop": false,
 "name": &"izquierda",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("12_t87l4")
 }],
-"loop": true,
+"loop": false,
 "name": &"sin hacer nada",
-"speed": 5.0
+"speed": 3.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_us55h"]
-radius = 60.0
-height = 230.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23h11"]
+size = Vector2(36, 17)
 
 [node name="JugadorDino" type="Node2D"]
 
@@ -88,12 +90,14 @@ height = 230.0
 script = ExtResource("1_yrigp")
 
 [node name="animationSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.284375, 0.2375)
 sprite_frames = SubResource("SpriteFrames_uvuo2")
-animation = &"izquierda"
+animation = &"defrente"
 autoplay = "sin hacer nada"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_us55h")
+position = Vector2(-1, 20)
+shape = SubResource("RectangleShape2D_23h11")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-enabled = false
+zoom = Vector2(3, 3)

@@ -16,6 +16,6 @@ func _process(delta):
 		jugador.position.y -= velocidad * delta
 		animacion.play("arriba")
 	else:
-		animacion.play("sin hacer nada")
+		animacion.stop()
 	pass
 	move_and_slide()
